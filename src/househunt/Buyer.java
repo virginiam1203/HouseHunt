@@ -2,9 +2,9 @@ package househunt;
 
 public class Buyer {
     
-    private int _budget;
-    private int _credit;
-    private int _offer;
+    private int _budget = 120000;
+    private int _credit = 600;
+    private int _offer = 100000;
     
     public Buyer(){
         
@@ -28,8 +28,6 @@ public class Buyer {
     public void setBudget(int budget){
         if (budget > 0)
             _budget = budget;
-        else
-            _budget = 120000; //default budget value
     }
     
     public int getCredit() {
