@@ -10,12 +10,12 @@ public class House {
     private String _inspection;
     private int _appraisal = 135000;
     
-    public House(){
+    public House() {
         _description = makeDescription();
         _inspection = makeInspection();
     }
     
-    public House(int list, int value, int appraisal){
+    public House(int list, int value, int appraisal) {
         _list = list;
         _value = value;
         _appraisal = appraisal;
@@ -23,28 +23,28 @@ public class House {
         _inspection = makeInspection();
     }
     
-    public String  getDescription(){
+    public String  getDescription() {
         return _description;
     }
     
-    public String getInspection(){
+    public String getInspection() {
         return _inspection;
     }
     
-    public int getPrice(){
+    public int getPrice() {
         return _list;
     }
     
-    public int getValue(){
+    public int getValue() {
         return _value;
     }
     
-    public int getAppraisal(){
+    public int getAppraisal() {
         return _appraisal;
     }
     
     
-    private String makeDescription(){
+    private String makeDescription() {
 	String[] desc = { "A small 3 bedroom ranch house","A quaint 2 bedroom cottage", 
         "A massive 7 bedroom Victorian mansion", "A minimalist modern 3 bedroom", 
         "A well-maintained 4 bedroom Tudor", "A shoddy shack", "A clean 2 bedroom townhouse",
@@ -54,17 +54,17 @@ public class House {
         return desc[(_pseudoRand++ % desc.length)];
     }
     
-    private String makeInspection(){
-	String[] desc = {"Nothing unusual found", "There is a cracked sewer line",
+    private String makeInspection() {
+	String[] insp = {"Nothing unusual found", "There is a cracked sewer line",
         "The electricity needs to be updated", "Pipes are leaking", "High radon levels",
         "House has termite infestation", "Minor cosmetic damage to walls", 
         "Retaining wall needs replacement", "Toilet does not flush"
          };
 	
-        return desc[(_pseudoRand++ % desc.length)];
+        return insp[(_pseudoRand++ % insp.length)];
     }
     
-    public int makeCounter(int offer){
+    public int makeCounter(int offer) {
         int counter = 0;
         //if the offer is at or higher than list price, accept it
         if (offer >= _list)

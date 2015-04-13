@@ -6,26 +6,26 @@ public class Buyer {
     private int _credit = 600;
     private int _offer = 100000;
     
-    public Buyer(){
+    public Buyer() {
         
     }
 
-    public Buyer(int budget, int credit){
+    public Buyer(int budget, int credit) {
         _budget = budget;
         _credit = credit;
     }
     
-    public Buyer(int budget, int credit, int offer){
+    public Buyer(int budget, int credit, int offer) {
         _budget = budget;
         _credit = credit;
         _offer = offer;
     }
     
-    public int getBudget(){
+    public int getBudget() {
         return _budget;
     }
             
-    public void setBudget(int budget){
+    public void setBudget(int budget) {
         if (budget > 0)
             _budget = budget;
     }
@@ -34,7 +34,7 @@ public class Buyer {
         return _credit;
     }
     
-    public void setCredit(int credit){
+    public void setCredit(int credit) {
         if (credit < 300)
             _credit = 300;
         else if (credit > 850)
@@ -43,15 +43,15 @@ public class Buyer {
             _credit = credit;
     }
     
-    public int getOffer(){
+    public int getOffer() {
         return _offer;
     }
     
-    public void makeOffer(int amount){
+    public void makeOffer(int amount) {
         _offer = amount;
     }
     
-    public boolean applyMortgage(){
+    public boolean applyMortgage() {
         if ((_offer < _budget && _credit >= 600) || 
             (_offer == _budget && _credit >= 700) || 
             (_offer <=(_budget + _budget * .1) && _credit >= 800)){

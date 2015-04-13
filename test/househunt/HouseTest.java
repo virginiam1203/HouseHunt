@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package househunt;
 
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Ginger
- */
 public class HouseTest {
     
     private House house;
@@ -36,7 +26,7 @@ public class HouseTest {
      * Test to see if the House constructor with parameters returns non-null value
      */
     @Test
-    public void testHouseConstructorWithParams(){
+    public void testHouseConstructorWithParams() {
         house = new House(120000, 100000, 115000);
         assertNotNull(house);
     }
@@ -45,7 +35,7 @@ public class HouseTest {
      * Test to see that a constructed house has a description
      */
     @Test
-    public void testHouseDescription(){
+    public void testHouseDescription() {
         house = new House();
         String desc = house.getDescription();
         assertNotNull(desc);
@@ -65,7 +55,7 @@ public class HouseTest {
      * Test to see that a constructed house has a list price
      */
     @Test
-    public void testHasPrice(){
+    public void testHasPrice() {
         house = new House(120000, 100000, 115000);
         int price = house.getPrice();
         assertEquals(price, 120000);
@@ -75,7 +65,7 @@ public class HouseTest {
      * Test to see that a constructed house has a seller value
      */
     @Test
-    public void testHasValue(){
+    public void testHasValue() {
         house = new House(120000, 100000, 115000);
         int val = house.getValue();
         assertEquals(val, 100000);
@@ -85,7 +75,7 @@ public class HouseTest {
      * Test to see that a constructed house has an appraised price
      */
     @Test
-    public void testHasAppraisal(){
+    public void testHasAppraisal() {
         house = new House(120000, 100000, 115000);
         int appraise = house.getAppraisal();
         assertEquals(appraise, 115000);
@@ -96,7 +86,7 @@ public class HouseTest {
      * Acceptance is when the counter is equal to the offer
      */
     @Test
-    public void testMakeCounter(){
+    public void testMakeCounter() {
         house = new House(120000, 100000, 115000);
         int offer = 120000;
         int counter = house.makeCounter(offer);
@@ -108,7 +98,7 @@ public class HouseTest {
      * with offer + 5000
      */
     @Test
-    public void testInRangeOffer(){
+    public void testInRangeOffer() {
         house = new House(150000, 100000, 160000);
         int offer = 130000;
         int counter = house.makeCounter(offer);
@@ -120,7 +110,7 @@ public class HouseTest {
      * with list price
      */
     @Test
-    public void testCloseOffer(){
+    public void testCloseOffer() {
         house = new House(150000, 100000, 160000);
         int offer = 145000;
         int counter = house.makeCounter(offer);
@@ -131,7 +121,7 @@ public class HouseTest {
      * Test that an offer lower than the seller value is countered with seller value
      */
     @Test
-    public void testLowOffer(){
+    public void testLowOffer() {
         house = new House(150000, 100000, 160000);
         int offer = 60000;
         int counter = house.makeCounter(offer);

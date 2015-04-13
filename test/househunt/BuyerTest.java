@@ -4,10 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Ginger
- */
 public class BuyerTest {
     
     private Buyer buyer;
@@ -51,7 +47,7 @@ public class BuyerTest {
      * Test to see if you can get the budget you just set using parameters
      */
     @Test
-    public void testGetBudget(){
+    public void testGetBudget() {
         buyer = new Buyer (120000, 790);
         int val = buyer.getBudget();
         assertEquals(val, 120000);
@@ -72,7 +68,7 @@ public class BuyerTest {
      * Test to see if you can get the credit you just set using parameters
      */
     @Test
-    public void testGetCredit(){
+    public void testGetCredit() {
         buyer = new Buyer (120000, 790);
         int val = buyer.getCredit();
         assertEquals(val, 790);
@@ -93,7 +89,7 @@ public class BuyerTest {
      * Test that if a budget is negative, the default budget is set
      */
     @Test
-    public void testNegBudget(){
+    public void testNegBudget() {
         buyer = new Buyer();
         buyer.setBudget(-100);
         int val = buyer.getBudget();
@@ -104,7 +100,7 @@ public class BuyerTest {
      * Test that if a credit score is too low, the default score is set
      */
     @Test
-    public void testLowCredit(){
+    public void testLowCredit() {
         buyer = new Buyer();
         buyer.setCredit(0);
         int val = buyer.getCredit();
@@ -115,7 +111,7 @@ public class BuyerTest {
      * Test that if a credit score is too high, the default score is set
      */
     @Test
-    public void testHighCredit(){
+    public void testHighCredit() {
         buyer = new Buyer();
         buyer.setCredit(1000);
         int val = buyer.getCredit();
@@ -126,7 +122,7 @@ public class BuyerTest {
      * Test that we can return the offer value of a buyer once it is set
      */
     @Test
-    public void testGetOffer(){
+    public void testGetOffer() {
         buyer = new Buyer(100000, 500, 100000);
         int val = buyer.getOffer();
         assertEquals(val, 100000);
@@ -136,7 +132,7 @@ public class BuyerTest {
      * Test that we can set the offer amount
      */
     @Test
-    public void testMakeOffer(){
+    public void testMakeOffer() {
         buyer = new Buyer();
         buyer.makeOffer(90000);
         int val = buyer.getOffer();
@@ -165,7 +161,7 @@ public class BuyerTest {
      * Test that a buyer with great credit can get a house 10% above budget
      */
     @Test
-    public void testGoodCreditHighMortgage(){
+    public void testGoodCreditHighMortgage() {
         buyer = new Buyer(100000, 850, 110000);
         assertTrue(buyer.applyMortgage());
     }
@@ -174,7 +170,7 @@ public class BuyerTest {
      * Test that a buyer cannot get mortgage above budget
      */
     @Test
-    public void testHighMortgage(){
+    public void testHighMortgage() {
         buyer = new Buyer(100000, 700, 112000);
         assertFalse(buyer.applyMortgage());
     }
@@ -183,7 +179,7 @@ public class BuyerTest {
      * Test that a buyer with mediocre credit can buy a house under budget
      */
     @Test
-    public void testUnderBudgetMortgage(){
+    public void testUnderBudgetMortgage() {
         buyer = new Buyer(100000, 600, 95000);
         assertTrue(buyer.applyMortgage());
     }
