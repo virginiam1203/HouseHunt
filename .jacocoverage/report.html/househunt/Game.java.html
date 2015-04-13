@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;HouseHunt&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">househunt</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">package househunt;
+
+public class Game {
+    
+    private Buyer _buyer;
+    private final House _house1;
+    private final House _house2;
+    private final House _house3;
+    private House _chosen;
+    private final IntPrompter _prompter;
+    
+<span class="nc" id="L12">    public Game() {</span>
+<span class="nc" id="L13">        _buyer = new Buyer();</span>
+<span class="nc" id="L14">        _house1 = new House(150000, 120000, 170000);</span>
+<span class="nc" id="L15">        _house2 = new House(100000, 90000, 90000);</span>
+<span class="nc" id="L16">        _house3 = new House(500000, 300000, 500000);</span>
+<span class="nc" id="L17">        _chosen = _house1;</span>
+<span class="nc" id="L18">        _prompter = new IntPrompter(System.in, System.out);</span>
+<span class="nc" id="L19">    }</span>
+    
+<span class="fc" id="L21">    public Game(Buyer b, House h1, House h2, House h3, IntPrompter p) {</span>
+<span class="fc" id="L22">        _buyer = b;</span>
+<span class="fc" id="L23">        _house1 = h1;</span>
+<span class="fc" id="L24">        _house2 = h2;</span>
+<span class="fc" id="L25">        _house3 = h3;</span>
+<span class="fc" id="L26">        _chosen = _house1;</span>
+<span class="fc" id="L27">        _prompter = p;</span>
+<span class="fc" id="L28">    }</span>
+    
+    public Buyer getBuyer() {
+<span class="nc" id="L31">        return _buyer;</span>
+    }
+    
+    public void setBuyer(Buyer b) {
+<span class="nc" id="L35">        _buyer = b;</span>
+<span class="nc" id="L36">    }</span>
+    
+    public House getHouseOne() {
+<span class="nc" id="L39">        return _house1;</span>
+    }
+    
+    public House getHouseTwo() {
+<span class="nc" id="L43">        return _house2;</span>
+    }
+    
+    public House getHouseThree() {
+<span class="fc" id="L47">        return _house3;</span>
+    }
+    
+    public House getChosen() {
+<span class="fc" id="L51">        return _chosen;</span>
+    }
+    
+    public void askBudget() {
+<span class="fc" id="L55">        int input = -1;</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        while (input &lt; 0)</span>
+        {
+<span class="fc" id="L58">            input = _prompter.ask(&quot;Enter the buyer budget (a positive integer).&quot;);</span>
+        }
+<span class="fc" id="L60">        _buyer.setBudget(input);</span>
+<span class="fc" id="L61">    }</span>
+    
+    public void askCredit() {
+<span class="fc" id="L64">        int input = -1;</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        while (input &lt; 0) {</span>
+<span class="fc" id="L66">            input = _prompter.ask(&quot;Enter the buyer credit score (a number between 300-850).&quot;);</span>
+        }      
+<span class="fc" id="L68">        _buyer.setCredit(input);</span>
+<span class="fc" id="L69">    }</span>
+    
+    public void chooseHouse() {
+<span class="fc" id="L72">        int input = -1;</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        while (input &lt; 0) {</span>
+<span class="fc" id="L74">            _prompter.message(&quot;Here are your house options. Enter the number of the house you would like to purchase.&quot;);</span>
+<span class="fc" id="L75">            _prompter.message(&quot;1: &quot; + _house1.getDescription() + &quot; Price: &quot; + _house1.getPrice());</span>
+<span class="fc" id="L76">            _prompter.message(&quot;2: &quot; + _house2.getDescription() + &quot; Price: &quot; + _house2.getPrice());</span>
+<span class="fc" id="L77">            input = _prompter.ask(&quot;3: &quot; + _house3.getDescription() + &quot; Price: &quot; + _house3.getPrice());</span>
+
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">            if (input == 1)</span>
+<span class="nc" id="L80">               _chosen = _house1;</span>
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">            else if (input == 2)</span>
+<span class="nc" id="L82">               _chosen = _house2;</span>
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">            else if (input ==3)</span>
+<span class="fc" id="L84">               _chosen = _house3;</span>
+            else
+<span class="nc" id="L86">               input = -1;</span>
+        }
+<span class="fc" id="L88">    }</span>
+    
+    public boolean negotiateOffer() {
+        int sellerCounter;
+        int input;
+<span class="fc" id="L93">        input = _prompter.ask(&quot;Enter the amount of your offer (a positive integer):&quot;);</span>
+<span class="fc" id="L94">        _buyer.makeOffer(input);</span>
+<span class="fc" id="L95">        sellerCounter = _chosen.makeCounter(input);</span>
+<span class="fc" id="L96">        boolean cont = true;</span>
+<span class="fc bfc" id="L97" title="All 4 branches covered.">        while(sellerCounter != _buyer.getOffer() &amp;&amp; cont) {</span>
+<span class="fc" id="L98">            input = _prompter.ask(&quot;The seller has countered with &quot; + sellerCounter +</span>
+            &quot;. Make another offer, accept the offer by confirming the amount, or enter '-1' to stop negotiating.&quot;);
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">            if(input == -1) {</span>
+<span class="fc" id="L101">                cont = false;         </span>
+            }
+<span class="nc bnc" id="L103" title="All 2 branches missed.">            else if (input == sellerCounter) {</span>
+<span class="nc" id="L104">                _buyer.makeOffer(input);</span>
+            }
+            else {
+<span class="nc" id="L107">                _buyer.makeOffer(input);</span>
+<span class="nc" id="L108">                sellerCounter = _chosen.makeCounter(input);</span>
+            }
+        }
+<span class="fc" id="L111">        return cont;</span>
+    }
+    
+    public boolean getMortgage() {
+<span class="fc" id="L115">        _prompter.message(&quot;The seller has accepted your offer.&quot;);</span>
+<span class="fc" id="L116">        boolean approved = _buyer.applyMortgage();</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">        if (approved) {</span>
+<span class="fc" id="L118">            _prompter.message(&quot;Your mortgage was approved!&quot;);</span>
+<span class="fc" id="L119">            return true;</span>
+        }
+        else {
+<span class="fc" id="L122">            _prompter.message(&quot;Your mortgage was denied.&quot;);</span>
+<span class="fc" id="L123">            return false;</span>
+        }
+    }
+    
+    public boolean getAppraised() {
+<span class="fc bfc" id="L128" title="All 2 branches covered.">       if (_chosen.getAppraisal() &gt;= _buyer.getOffer()) {</span>
+<span class="fc" id="L129">           _prompter.message(&quot;The house passed the appraisal.&quot;);</span>
+<span class="fc" id="L130">           return true;</span>
+       }           
+        else {
+<span class="fc" id="L133">            _prompter.message(&quot;The house failed the appraisal.&quot;);</span>
+<span class="fc" id="L134">            return false;</span>
+        }
+    }
+    
+    public void printOutcome(boolean offer, boolean approved, boolean appraised) {
+<span class="pc bpc" id="L139" title="2 of 6 branches missed.">        if (offer &amp;&amp; approved &amp;&amp; appraised)</span>
+<span class="fc" id="L140">            _prompter.message(&quot;Congratulations! You bought a house.&quot;);</span>
+        else
+<span class="fc" id="L142">            _prompter.message(&quot;You failed to buy the house.&quot;);</span>
+<span class="fc" id="L143">    }</span>
+               
+    public void runGame() {   
+        boolean offer;
+<span class="nc" id="L147">        boolean approved = false;</span>
+<span class="nc" id="L148">        boolean appraised = false;</span>
+        //Get the budget
+<span class="nc" id="L150">        askBudget();</span>
+       
+        //Get the credit score
+<span class="nc" id="L153">        askCredit();</span>
+        
+        //Let player look at houses
+<span class="nc" id="L156">        chooseHouse();</span>
+     
+        //Negotiate offer
+<span class="nc" id="L159">        offer = negotiateOffer();</span>
+               
+        //apply for mortgage
+<span class="nc bnc" id="L162" title="All 2 branches missed.">        if (offer) {</span>
+<span class="nc" id="L163">            approved = getMortgage();</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">            if (approved) {</span>
+<span class="nc" id="L165">                appraised = getAppraised();</span>
+            }
+        } 
+        
+        //print win or lose
+<span class="nc" id="L170">        printOutcome(offer, approved, appraised);</span>
+<span class="nc" id="L171">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.4.201312101107</span></div></body></html>

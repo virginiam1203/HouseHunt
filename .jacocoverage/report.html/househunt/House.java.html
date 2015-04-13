@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>House.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;HouseHunt&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">househunt</a> &gt; <span class="el_source">House.java</span></div><h1>House.java</h1><pre class="source lang-java linenums">package househunt;
+
+public class House {
+    
+<span class="fc" id="L5">    private static int _pseudoRand = 0;</span>
+    
+<span class="fc" id="L7">    private int _list = 150000; //the list price</span>
+<span class="fc" id="L8">    private int _value = 120000; //the price below which seller will not sell</span>
+    private String _description;
+    private String _inspection;
+<span class="fc" id="L11">    private int _appraisal = 135000;</span>
+    
+<span class="fc" id="L13">    public House() {</span>
+<span class="fc" id="L14">        _description = makeDescription();</span>
+<span class="fc" id="L15">        _inspection = makeInspection();</span>
+<span class="fc" id="L16">    }</span>
+    
+<span class="fc" id="L18">    public House(int list, int value, int appraisal) {</span>
+<span class="fc" id="L19">        _list = list;</span>
+<span class="fc" id="L20">        _value = value;</span>
+<span class="fc" id="L21">        _appraisal = appraisal;</span>
+<span class="fc" id="L22">        _description = makeDescription();</span>
+<span class="fc" id="L23">        _inspection = makeInspection();</span>
+<span class="fc" id="L24">    }</span>
+    
+    public String  getDescription() {
+<span class="fc" id="L27">        return _description;</span>
+    }
+    
+    public String getInspection() {
+<span class="fc" id="L31">        return _inspection;</span>
+    }
+    
+    public int getPrice() {
+<span class="fc" id="L35">        return _list;</span>
+    }
+    
+    public int getValue() {
+<span class="fc" id="L39">        return _value;</span>
+    }
+    
+    public int getAppraisal() {
+<span class="fc" id="L43">        return _appraisal;</span>
+    }
+    
+    
+    private String makeDescription() {
+<span class="fc" id="L48">	String[] desc = { &quot;A small 3 bedroom ranch house&quot;,&quot;A quaint 2 bedroom cottage&quot;, </span>
+        &quot;A massive 7 bedroom Victorian mansion&quot;, &quot;A minimalist modern 3 bedroom&quot;, 
+        &quot;A well-maintained 4 bedroom Tudor&quot;, &quot;A shoddy shack&quot;, &quot;A clean 2 bedroom townhouse&quot;,
+        &quot;An update 3 bedroom home&quot;, &quot;A 3 bedroom foreclosure&quot;, &quot;A roomy 4 bedroom Edwardian&quot;
+         };
+	
+<span class="fc" id="L54">        return desc[(_pseudoRand++ % desc.length)];</span>
+    }
+    
+    private String makeInspection() {
+<span class="fc" id="L58">	String[] insp = {&quot;Nothing unusual found&quot;, &quot;There is a cracked sewer line&quot;,</span>
+        &quot;The electricity needs to be updated&quot;, &quot;Pipes are leaking&quot;, &quot;High radon levels&quot;,
+        &quot;House has termite infestation&quot;, &quot;Minor cosmetic damage to walls&quot;, 
+        &quot;Retaining wall needs replacement&quot;, &quot;Toilet does not flush&quot;
+         };
+	
+<span class="fc" id="L64">        return insp[(_pseudoRand++ % insp.length)];</span>
+    }
+    
+    public int makeCounter(int offer) {
+<span class="fc" id="L68">        int counter = 0;</span>
+        //if the offer is at or higher than list price, accept it
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (offer &gt;= _list)</span>
+        {
+<span class="fc" id="L72">            return offer;</span>
+        }
+        //if the offer is at or above minimum value, ask for more up to list price
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        else if (offer &gt;= _value)</span>
+        {
+<span class="fc" id="L77">            counter = offer + 5000;</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">            if (counter &gt; _list)</span>
+            {
+<span class="nc" id="L80">                counter = _list;</span>
+            }
+        }
+        //if the offer is less than the value, ask for the value
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        else if (offer &lt; _value)</span>
+        {
+<span class="fc" id="L86">            counter = _value;</span>
+        }
+<span class="fc" id="L88">        return counter;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.4.201312101107</span></div></body></html>

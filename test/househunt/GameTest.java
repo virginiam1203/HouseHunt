@@ -114,6 +114,52 @@ public class GameTest {
     }
     
     /*
+     * Test that a buyer gets a mortgage
+     * Requirement: FUN-BUYER-APPLY-MORTGAGE
+     */
+    @Test
+    public void testGetMortgage() {
+        when(mockBuyer.applyMortgage()).thenReturn(true);
+        boolean b = game.getMortgage();
+        verify(mockPrompter).message("Your mortgage was approved!");
+    }
+    
+    /*
+     * Test that a buyer gets a failure message if no mortgage
+     * Requirement: FUN-BUYER-APPLY-MORTGAGE
+     */
+    @Test
+    public void testGetMortgageFail() {
+        when(mockBuyer.applyMortgage()).thenReturn(false);
+        boolean b = game.getMortgage();
+        verify(mockPrompter).message("Your mortgage was denied.");
+    }
+    
+    /*
+     * Test that user gets appraisal pass message
+     * Requirement: FUN-BUYER-APPRAISE
+     */
+    @Test
+    public void testGetAppraised() {
+        when(mockBuyer.getOffer()).thenReturn(120000);
+        when(mockHouse1.getAppraisal()).thenReturn(120000);
+        boolean b = game.getAppraised();
+        verify(mockPrompter).message("The house passed the appraisal.");
+    }
+    
+    /*
+     * Test that user gets appraisal fail message
+     * Requirement: FUN-BUYER-APPRAISE
+     */
+    @Test
+    public void testGetAppraisedFail() {
+        when(mockBuyer.getOffer()).thenReturn(120000);
+        when(mockHouse1.getAppraisal()).thenReturn(110000);
+        boolean b = game.getAppraised();
+        verify(mockPrompter).message("The house failed the appraisal.");
+    }
+    
+    /*
      * Test that on a win outcome prints win message
      * Requirements: FUN-WIN
      */
