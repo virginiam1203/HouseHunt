@@ -6,7 +6,7 @@ FUN-BUDGET - A user should be able to enter a budget for the buyer
 
 FUN-CREDIT - A user should be able to enter a credit score for the buyer
 
-FUN-INVALID-INPUT - If a player enters a value that is out of bounds or otherwise invalid, the system shall respond with the phrase "Invalid input" Valid inputs are numbers.
+FUN-INVALID-INPUT - If a player enters a value that is out of bounds or otherwise invalid, the system will proceed with default values or prompt again for input.
 
 FUN-COMMAND-PROMPT - At each stage of the game, the user will be prompted with command options and the appropriate input.
 
@@ -39,5 +39,6 @@ FUN-BUYER-APPRAISE - Buyer can have house appraised.
 FUN-WIN - The player wins if they make an offer on a house which is accepted, then they receive a mortgage and the house appraises at or higher than the purchase price.
 
 FUN-LOSE - The player loses if they do not have an accepted offer, do not receive a mortgage, or if the house does not appraise at purchase price.
+
 
 

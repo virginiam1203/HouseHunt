@@ -135,8 +135,8 @@ public class Game {
         }
     }
     
-    public void printOutcome(boolean win) {
-        if (win)
+    public void printOutcome(boolean offer, boolean approved, boolean appraised) {
+        if (offer && approved && appraised)
             _prompter.message("Congratulations! You bought a house.");
         else
             _prompter.message("You failed to buy the house.");
@@ -167,9 +167,6 @@ public class Game {
         } 
         
         //print win or lose
-        if (offer && approved && appraised)
-            printOutcome(true);
-        else
-            printOutcome(false);
+        printOutcome(offer, approved, appraised);
     }
 }

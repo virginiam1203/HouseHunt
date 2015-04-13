@@ -33,6 +33,7 @@ public class HouseTest {
     
     /*
      * Test to see that a constructed house has a description
+     * Requirement: FUN-HOUSE-DESCRIPTION
      */
     @Test
     public void testHouseDescription() {
@@ -43,6 +44,7 @@ public class HouseTest {
     
     /*
      * Test to see that a constructed house has an inspection
+     * Requirement: FUN-HOUSE-INSPECTION
      */
     @Test
     public void testHouseInspection() {
@@ -53,6 +55,7 @@ public class HouseTest {
     
     /*
      * Test to see that a constructed house has a list price
+     * Requirement: FUN-HOUSE-LIST-PRICE
      */
     @Test
     public void testHasPrice() {
@@ -63,6 +66,7 @@ public class HouseTest {
     
     /*
      * Test to see that a constructed house has a seller value
+     * Requirement: FUN-SELLER-VALUE
      */
     @Test
     public void testHasValue() {
@@ -73,6 +77,7 @@ public class HouseTest {
     
     /*
      * Test to see that a constructed house has an appraised price
+     * Requirement: FUN-HOUSE-APPRAISAL, FUN-BUYER-APPRAISE
      */
     @Test
     public void testHasAppraisal() {
@@ -84,6 +89,7 @@ public class HouseTest {
     /*
      * Test that the seller of a house accepts a list price offer
      * Acceptance is when the counter is equal to the offer
+     * Requirement: FUN-SELLER-COUNTER
      */
     @Test
     public void testMakeCounter() {
@@ -96,6 +102,7 @@ public class HouseTest {
     /*
      * Test that if the offer is between the list and value, seller counters 
      * with offer + 5000
+     * Requirement: FUN-SELLER-COUNTER
      */
     @Test
     public void testInRangeOffer() {
@@ -108,6 +115,7 @@ public class HouseTest {
     /*
      * Test that if the offer is less than 5000 below the list, seller counters
      * with list price
+     * Requirement: FUN-SELLER-COUNTER
      */
     @Test
     public void testCloseOffer() {
@@ -119,6 +127,7 @@ public class HouseTest {
     
     /*
      * Test that an offer lower than the seller value is countered with seller value
+     * Requirement: FUN-SELLER-COUNTER
      */
     @Test
     public void testLowOffer() {
@@ -130,6 +139,7 @@ public class HouseTest {
     
     /*
      * Test that entering the same amount as previous offer accepts the offer
+     * Requirement: FUN-SELLER-ACCEPT
      */
     public void testAcceptOffer() {
         house = new House(150000, 100000, 160000);

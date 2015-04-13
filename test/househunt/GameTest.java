@@ -36,6 +36,7 @@ public class GameTest {
     
     /*
      * Test that ask budget takes positive integer input and makes it the buyer budget
+     * Requirement: FUN-BUDGET, FUN-COMMAND-PROMPT
      */
     @Test
     public void testAskBudget() {
@@ -46,6 +47,7 @@ public class GameTest {
   
     /*
      * Test that ask credit takes positive integer input and makes it the buyer credit
+     * Requirement: FUN-CREDIT, FUN-COMMAND-PROMPT
      */
     @Test
     public void testAskCredit() {
@@ -56,6 +58,7 @@ public class GameTest {
     
     /*
      * Test that choose house lets player choose a valid house
+     * Requirement: FUN-HOUSE-OPTIONS, FUN-COMMAND-PROMPT
      */
     @Test
     public void testChooseHouse() {
@@ -65,7 +68,8 @@ public class GameTest {
     }
     
     /*
-     * Test that a buyer makes an offer
+     * Test that a buyer makes an offer or counteroffer
+     * Requirement: FUN-BUYER-OFFER, FUN-BUYER-COUNTER, FUN-COMMAND-PROMPT
      */
     @Test
     public void testNegotiateOffer() {
@@ -76,6 +80,7 @@ public class GameTest {
     
     /*
      * Test that a seller makes a counter offer
+     * Requirement: FUN-SELLER-COUNTER
      */
     @Test
     public void testSellerCounter() {
@@ -86,6 +91,7 @@ public class GameTest {
     
     /*
      * Test that if seller counter and buyer offer are equal then the offer is accepted
+     * Requirement: FUN-BUYER-ACCEPT
      */
     @Test
     public void testAcceptOffer() {
@@ -109,19 +115,21 @@ public class GameTest {
     
     /*
      * Test that on a win outcome prints win message
+     * Requirements: FUN-WIN
      */
     @Test
     public void testPrintWin() {
-        game.printOutcome(true);
+        game.printOutcome(true, true, true);
         verify(mockPrompter).message("Congratulations! You bought a house.");
     }
     
     /*
      * Test that on a lose outcome prints lose message
+     * Requirements: FUN-LOSE
      */
     @Test
     public void testPrintLose() {
-        game.printOutcome(false);
+        game.printOutcome(false, false, false);
         verify(mockPrompter).message("You failed to buy the house.");
     }
 }

@@ -45,6 +45,7 @@ public class BuyerTest {
     
     /*
      * Test to see if you can get the budget you just set using parameters
+     * Requirement: FUN-BUDGET
      */
     @Test
     public void testGetBudget() {
@@ -55,6 +56,7 @@ public class BuyerTest {
     
     /*
      * Test to see if set budget works on a buyer with null parameters
+     * Requirement: FUN-BUDGET
      */
     @Test
     public void testSetBudget() {
@@ -66,6 +68,7 @@ public class BuyerTest {
     
     /*
      * Test to see if you can get the credit you just set using parameters
+     * Requirement: FUN-CREDIT
      */
     @Test
     public void testGetCredit() {
@@ -76,6 +79,7 @@ public class BuyerTest {
     
     /*
      * Test to see if set credit works on a buyer with null parameters
+     * Requirement: FUN-CREDIT
      */
     @Test
     public void testSetCredit() {
@@ -87,6 +91,7 @@ public class BuyerTest {
     
     /*
      * Test that if a budget is negative, the default budget is set
+     * Requirement: FUN-BUDGET, FUN-INVALID-INPUT
      */
     @Test
     public void testNegBudget() {
@@ -98,6 +103,7 @@ public class BuyerTest {
     
     /*
      * Test that if a credit score is too low, the default score is set
+     * Requirement: FUN-CREDIT, FUN-INVALID-INPUT
      */
     @Test
     public void testLowCredit() {
@@ -109,6 +115,7 @@ public class BuyerTest {
     
     /*
      * Test that if a credit score is too high, the default score is set
+     * Requirement: FUN-CREDIT, FUN-INVALID-INPUT
      */
     @Test
     public void testHighCredit() {
@@ -120,6 +127,7 @@ public class BuyerTest {
     
     /*
      * Test that we can return the offer value of a buyer once it is set
+     * Requirement: FUN-BUYER-APPLY-MORTGAGE
      */
     @Test
     public void testGetOffer() {
@@ -130,6 +138,7 @@ public class BuyerTest {
     
     /*
      * Test that we can set the offer amount
+     * Requirement: FUN-BUYER-OFFER
      */
     @Test
     public void testMakeOffer() {
@@ -141,6 +150,7 @@ public class BuyerTest {
     
     /*
      * Test that the buyer can get a mortgage with good credit and within budget
+     * Requirement: FUN-BUYER-APPLY-MORTGAGE
      */
     @Test
     public void testGoodMortgage() {
@@ -150,6 +160,7 @@ public class BuyerTest {
     
     /*
      * Test that the buyer cannot get a mortgage with a bad credit score
+     * Requirement: FUN-BUYER-APPLY-MORTGAGE
      */
     @Test
     public void testBadCreditMortgage() {
@@ -159,6 +170,7 @@ public class BuyerTest {
     
     /*
      * Test that a buyer with great credit can get a house 10% above budget
+     * Requirement: FUN-BUYER-APPLY-MORTGAGE
      */
     @Test
     public void testGoodCreditHighMortgage() {
@@ -168,6 +180,7 @@ public class BuyerTest {
     
     /*
      * Test that a buyer cannot get mortgage above budget
+     * Requirement: FUN-BUYER-APPLY-MORTGAGE
      */
     @Test
     public void testHighMortgage() {
@@ -177,6 +190,7 @@ public class BuyerTest {
     
     /*
      * Test that a buyer with mediocre credit can buy a house under budget
+     * Requirement: FUN-BUYER-APPLY-MORTGAGE
      */
     @Test
     public void testUnderBudgetMortgage() {
