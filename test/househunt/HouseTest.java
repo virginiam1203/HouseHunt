@@ -127,4 +127,14 @@ public class HouseTest {
         int counter = house.makeCounter(offer);
         assertEquals(counter, house.getValue());   
     }
+    
+    /*
+     * Test that entering the same amount as previous offer accepts the offer
+     */
+    public void testAcceptOffer() {
+        house = new House(150000, 100000, 160000);
+        int offer = 100000;
+        int oldcounter = house.makeCounter(offer);
+        
+    }
 }

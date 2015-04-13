@@ -97,11 +97,16 @@ public class Game {
         while(sellerCounter != _buyer.getOffer() && cont) {
             input = _prompter.ask("The seller has countered with " + sellerCounter +
             ". Make another offer, accept the offer by confirming the amount, or enter '-1' to stop negotiating.");
-            if(input != -1) {
+            if(input == -1) {
+                cont = false;         
+            }
+            else if (input == sellerCounter) {
+                _buyer.makeOffer(input);
+            }
+            else {
                 _buyer.makeOffer(input);
                 sellerCounter = _chosen.makeCounter(input);
             }
-            else cont = false;
         }
         return cont;
     }
